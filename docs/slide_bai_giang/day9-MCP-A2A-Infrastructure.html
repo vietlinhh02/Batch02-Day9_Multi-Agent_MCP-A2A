@@ -1023,7 +1023,7 @@ const slides = [
   },
   {
     title: "Kiến trúc hệ thống Pháp lý",
-    subtitle: "5 service · A2A + LangGraph · OpenRouter LLM",
+    subtitle: "5 service · A2A + LangGraph · Gemini LLM",
     type: "image",
     tag: "Architecture",
     notes: `<h3>Sơ đồ tổng thể (10 phút)</h3>
@@ -1035,7 +1035,7 @@ const slides = [
   <li><strong>Compliance Agent :10103</strong> — chuyên SEC, SOX, FCPA, GDPR, AML.</li>
 </ul>
 <h3>LLM provider</h3>
-<p>Tất cả gọi OpenRouter qua <code>common/llm.py</code> → <code>get_llm()</code>. Đổi model toàn hệ thống chỉ cần đổi 1 dòng trong <code>.env</code>.</p>
+<p>Tất cả gọi Gemini qua <code>common/llm.py</code> → <code>get_llm()</code>. Đổi model toàn hệ thống chỉ cần đổi 1 dòng trong <code>.env</code>.</p>
 <h3>Liên hệ kiến thức Distributed Systems</h3>
 <p>Registry tương tự <em>service registry</em> (Eureka, Consul). Mỗi agent là một microservice. A2A đóng vai trò như <em>gRPC/REST</em>.</p>`
   },
@@ -1073,7 +1073,7 @@ const slides = [
   <li><strong>③</strong> Registry trả về endpoint Law Agent (<code>http://localhost:10101</code>).</li>
   <li><strong>④</strong> Customer Agent gửi A2A message tới Law Agent. <code>trace_id</code> sinh tại đây.</li>
   <li><strong>⑤</strong> Law Agent chạy StateGraph: analyze → check_routing → parallel Tax + Compliance.</li>
-  <li><strong>⑥⑦</strong> Tax + Compliance Agent độc lập gọi OpenRouter LLM.</li>
+  <li><strong>⑥⑦</strong> Tax + Compliance Agent độc lập gọi Gemini LLM.</li>
   <li><strong>⑧</strong> Law Agent aggregate kết quả, stream về Customer Agent.</li>
   <li><strong>⑨</strong> Customer Agent stream tiếp về user.</li>
 </ul>

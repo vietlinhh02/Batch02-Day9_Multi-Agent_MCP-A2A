@@ -9,7 +9,7 @@ uv sync
 
 # Copy environment file
 cp .env.example .env
-# Sau đó sửa .env, thêm OPENROUTER_API_KEY
+# Sau đó sửa .env, thêm GEMINI_API_KEY
 ```
 
 ### Chạy Stages (Standalone)
@@ -153,8 +153,7 @@ response = await client.send_message(request)
 cat .env
 
 # Test API key
-curl https://openrouter.ai/api/v1/models \
-  -H "Authorization: Bearer YOUR_KEY_HERE"
+curl "https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_KEY_HERE"
 ```
 
 ### Check Ports
@@ -296,7 +295,7 @@ Tax Agent    Compliance Agent
 
 - **LangGraph Docs**: https://langchain-ai.github.io/langgraph/
 - **A2A Protocol**: https://github.com/google/A2A
-- **OpenRouter**: https://openrouter.ai/docs
+- **Gemini API**: https://ai.google.dev/gemini-api/docs
 - **Python Type Hints**: https://docs.python.org/3/library/typing.html
 
 ---

@@ -1,44 +1,55 @@
 #!/bin/bash
 set -e
 
-# Start all Legal Multi-Agent System services
-# Registry must be first, then leaf agents, then orchestrators
+# Khởi động hệ thống VinUni Legal AI Multi-Agent
+# Registry phải chạy trước, rồi leaf agents, rồi orchestrators
 
-echo "Starting Registry service on port 10000..."
-python -m registry &
+if [ -z "$PYTHON" ]; then
+    if [ -x ".venv/bin/python" ]; then
+        PYTHON=".venv/bin/python"
+    else
+        PYTHON="python"
+    fi
+fi
+
+echo "Python: $("$PYTHON" --version)"
+echo ""
+
+echo "Khởi động Registry trên port 10000..."
+"$PYTHON" -m registry &
 REGISTRY_PID=$!
 sleep 2
 
-echo "Starting Tax Agent on port 10102..."
-python -m tax_agent &
+echo "Khởi động Tax Agent trên port 10102..."
+"$PYTHON" -m tax_agent &
 TAX_PID=$!
 
-echo "Starting Compliance Agent on port 10103..."
-python -m compliance_agent &
+echo "Khởi động Compliance Agent trên port 10103..."
+"$PYTHON" -m compliance_agent &
 COMPLIANCE_PID=$!
 sleep 3
 
-echo "Starting Law Agent on port 10101..."
-python -m law_agent &
+echo "Khởi động Law Agent trên port 10101..."
+"$PYTHON" -m law_agent &
 LAW_PID=$!
 sleep 3
 
-echo "Starting Customer Agent on port 10100..."
-python -m customer_agent &
+echo "Khởi động Customer Agent trên port 10100..."
+"$PYTHON" -m customer_agent &
 CUSTOMER_PID=$!
 
 echo ""
-echo "All services started:"
+echo "Tất cả services đã khởi động:"
 echo "  Registry:         http://localhost:10000"
 echo "  Customer Agent:   http://localhost:10100"
 echo "  Law Agent:        http://localhost:10101"
 echo "  Tax Agent:        http://localhost:10102"
 echo "  Compliance Agent: http://localhost:10103"
 echo ""
-echo "Run test_client.py to send a query:"
-echo "  python test_client.py"
+echo "Chạy test_client.py để gửi câu hỏi:"
+echo "  $PYTHON test_client.py"
 echo ""
-echo "Press Ctrl+C to stop all services."
+echo "Nhấn Ctrl+C để dừng tất cả services."
 
-# Wait for all background processes
+# Chờ tất cả background processes
 wait $REGISTRY_PID $TAX_PID $COMPLIANCE_PID $LAW_PID $CUSTOMER_PID

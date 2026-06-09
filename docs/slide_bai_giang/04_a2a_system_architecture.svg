@@ -35,7 +35,7 @@
   <!-- Title -->
   <rect x="0" y="0" width="1200" height="82" fill="url(#heroGrad)"/>
   <text x="600" y="38" text-anchor="middle" font-size="28" font-weight="700" fill="#f1f5f9">Legal Multi-Agent System — Architecture</text>
-  <text x="600" y="62" text-anchor="middle" font-size="15" fill="#94a3b8">5 services communicating via A2A protocol · LangGraph orchestration · OpenRouter LLM</text>
+  <text x="600" y="62" text-anchor="middle" font-size="15" fill="#94a3b8">5 services communicating via A2A protocol · LangGraph orchestration · Gemini LLM</text>
   <line x1="80" y1="82" x2="1120" y2="82" stroke="#334155" stroke-width="1"/>
 
   <!-- ===== USER ===== -->
@@ -109,11 +109,11 @@
   <text x="875" y="659" text-anchor="middle" font-size="10" fill="#475569">No further delegation (leaf)</text>
 
   <!-- ===== COMMON TECH ===== -->
-  <!-- OpenRouter -->
+  <!-- Gemini -->
   <rect x="880" y="235" width="290" height="120" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
   <text x="1025" y="263" text-anchor="middle" font-size="13" font-weight="700" fill="#94a3b8">Shared Infrastructure</text>
-  <text x="1025" y="285" text-anchor="middle" font-size="11" fill="#64748b">LLM: OpenRouter API</text>
-  <text x="1025" y="305" text-anchor="middle" font-size="10" fill="#475569">anthropic/claude-sonnet-4-5</text>
+  <text x="1025" y="285" text-anchor="middle" font-size="11" fill="#64748b">LLM: Gemini API</text>
+  <text x="1025" y="305" text-anchor="middle" font-size="10" fill="#475569">gemini-2.5-flash</text>
   <text x="1025" y="325" text-anchor="middle" font-size="10" fill="#475569">langchain-openai · ChatOpenAI</text>
   <text x="1025" y="344" text-anchor="middle" font-size="10" fill="#475569">a2a-sdk 0.3+ · uv package manager</text>
 

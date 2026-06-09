@@ -1,9 +1,9 @@
-# Hướng Dẫn Giảng Viên - A2A Multi-Agent Codelab
+# Hướng Dẫn Giảng Viên - VinUni A2A Multi-Agent Codelab
 
 ## Tổng Quan
 
 **Thời lượng:** 2 giờ  
-**Đối tượng:** Sinh viên đã biết Python cơ bản  
+**Đối tượng:** Sinh viên VinUni đã biết Python cơ bản  
 **Mục tiêu:** Hiểu và xây dựng được multi-agent system với A2A protocol
 
 ## Chuẩn Bị Trước Buổi Lab
@@ -16,10 +16,10 @@ Gửi email cho sinh viên:
 Các bạn cần cài đặt trước:
 1. Python 3.11+ (kiểm tra: python --version)
 2. uv package manager: curl -LsSf https://astral.sh/uv/install.sh | sh
-3. Tạo tài khoản OpenRouter: https://openrouter.ai
+3. Tạo API key từ Google AI Studio: https://aistudio.google.com/app/apikey
 4. Clone repo: git clone <repo-url>
-5. Chạy: cd legal_multiagent && uv sync
-6. Copy .env.example thành .env và thêm OPENROUTER_API_KEY
+5. Chạy: cd vinuni-legal-ai-agents && uv sync
+6. Copy .env.example thành .env và thêm GEMINI_API_KEY
 
 Test: uv run python stages/stage_1_direct_llm/main.py
 Nếu chạy được là OK!
@@ -28,7 +28,7 @@ Nếu chạy được là OK!
 ### 2. Kiểm Tra Phòng Lab
 
 - [ ] Mỗi máy có Python 3.11+
-- [ ] Internet ổn định (cần gọi OpenRouter API)
+- [ ] Internet ổn định (cần gọi Gemini API)
 - [ ] Ports 10000-10103 không bị firewall chặn
 - [ ] Projector để demo
 
@@ -309,7 +309,7 @@ Giao cho sinh viên tự học:
 
 - LangGraph docs: https://langchain-ai.github.io/langgraph/
 - A2A spec: https://github.com/google/A2A
-- OpenRouter: https://openrouter.ai/docs
+- Gemini API: https://ai.google.dev/docs
 
 #### Feedback
 
@@ -327,11 +327,10 @@ Nhờ sinh viên điền form feedback (Google Form):
 **1. API Key không hoạt động:**
 ```bash
 # Check .env file
-cat .env | grep OPENROUTER_API_KEY
+cat .env | grep GEMINI_API_KEY
 
 # Test API key
-curl https://openrouter.ai/api/v1/models \
-  -H "Authorization: Bearer $OPENROUTER_API_KEY"
+curl "https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY"
 ```
 
 **2. Port bị chiếm:**

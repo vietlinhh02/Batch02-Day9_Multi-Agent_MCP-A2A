@@ -1,8 +1,9 @@
-# Codelab: Xây Dựng Hệ Thống Multi-Agent với A2A Protocol
+# Codelab: Xây Dựng Hệ Thống AI Multi-Agent với A2A Protocol
 
 **Thời gian:** 2 giờ  
 **Ngôn ngữ:** Python 3.11+  
 **Công nghệ:** LangGraph, LangChain, A2A SDK
+**Trường:** VinUni
 
 ## Mục Tiêu Học Tập
 
@@ -18,26 +19,26 @@ Sau khi hoàn thành codelab này, bạn sẽ:
 ### Yêu Cầu Hệ Thống
 - Python 3.11 trở lên
 - [uv](https://docs.astral.sh/uv/) package manager
-- API key từ [OpenRouter](https://openrouter.ai)
+- API key từ [Google AI Studio](https://aistudio.google.com/app/apikey)
 
 ### Cài Đặt
 
 ```bash
 # Clone repository
 git clone <repo-url>
-cd legal_multiagent
+cd vinuni-legal-ai-agents
 
 # Cài đặt dependencies
 uv sync
 
 # Cấu hình environment
 cp .env.example .env
-# Sửa file .env, thêm OPENROUTER_API_KEY của bạn
+# Sửa file .env, thêm GEMINI_API_KEY của bạn
 ```
 
 ---
 
-## Phần 1: Direct LLM Calling (20 phút)
+## Phần 1: Gọi LLM Trực Tiếp (20 phút)
 
 ### Lý Thuyết
 
@@ -211,7 +212,7 @@ Thêm vào tools list và test với câu hỏi về breach of contract.
 
 **Bài Tập 3.2:** Debug agent reasoning
 
-Thêm `verbose=True` vào `create_react_agent()` để xem chi tiết quá trình suy nghĩ của agent.
+Thêm `debug=True` vào `create_react_agent()` để xem chi tiết quá trình suy nghĩ của agent.
 
 ---
 
@@ -411,7 +412,7 @@ Tích hợp LangSmith hoặc Prometheus để monitor agent performance.
 
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [A2A Protocol Spec](https://github.com/google/A2A)
-- [OpenRouter API](https://openrouter.ai/docs)
+- [Gemini API](https://ai.google.dev/docs)
 - Architecture diagrams: `docs/*.svg`
 
 ## Hỗ Trợ
@@ -425,7 +426,9 @@ Nếu gặp vấn đề:
 ---
 
 ## **Bài Tập Cộng Điểm:**
-Sau khi chạy full Stage 5 (test_client.py) trả lời 2 câu hỏi:
+
+1. Viết code HTML file để demo các tương tác của các Agent ở stage 4 hoặc stage 5
+2. Sau khi chạy full Stage 5 (test_client.py) trả lời 2 câu hỏi:
 - Latency (Tổng thời gian trả lời 1 câu hỏi của hệ thống) là bao nhiêu giây?
 - Đề xuất phương án giảm latency và demo + show thời gian xử lý đã giảm được khi apply phương án?
 
